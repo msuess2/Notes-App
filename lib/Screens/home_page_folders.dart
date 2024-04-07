@@ -24,10 +24,7 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
         backgroundColor:Colors.black,
 
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SearchAnchor(
-          builder: ,
+
     );
   }
 }
