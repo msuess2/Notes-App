@@ -6,6 +6,7 @@ class Note {
   String content;
   List<Tag> tags;
   DateTime creationDate;
+  int totalTags;
 
   Note({
     required this.id,
@@ -13,6 +14,7 @@ class Note {
     required this.content,
     required this.tags,
     required this.creationDate,
+    required this.totalTags
   });
 }
 

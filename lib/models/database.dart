@@ -27,6 +27,7 @@ class DatabaseHelper {
         title TEXT,
         content TEXT,
         creationDate TEXT
+        totalTags INT
       )
     ''');
 
@@ -34,6 +35,8 @@ class DatabaseHelper {
       CREATE TABLE tags(
         id INTEGER PRIMARY KEY,
         name TEXT
+        totalNotes INTEGER
+        lastDate TEXT
       )
     ''');
 
