@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
+import 'package:notes_app/Screens/note_screen.dart';
 
 class HomeFolderScreen extends StatefulWidget {
   HomeFolderScreen({super.key});
@@ -83,6 +84,17 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
             ),
           ), // Add other widgets for displaying notes or tags here
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Navigate to the NewNoteScreen when the FloatingActionButton is pressed
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewNoteScreen()),
+          );
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Color(0xFF5C8374), // Set the background color of the FloatingActionButton
       ),
     );
   }
