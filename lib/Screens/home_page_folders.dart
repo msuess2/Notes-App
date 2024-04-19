@@ -19,23 +19,27 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
       appBar: AppBar(
         elevation: 0.0,
         title: Padding(
-        padding: const EdgeInsets.only(top: 20.0, left: 20.0), // Adjust top padding as needed
-        child: Text('Notes', style: TextStyle(color: Color(0xFF5C8374), fontSize: 30)),
-      ),
-        backgroundColor:Colors.black,
-
+          padding: const EdgeInsets.only(top: 20.0, left: 20.0),
+          // Adjust top padding as needed
+          child: Text('Notes',
+              style: TextStyle(color: Color(0xFF5C8374), fontSize: 30)),
+        ),
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: [
-          SizedBox(height: 20.0), // Added space between search bar and "Sort by" button
+          SizedBox(height: 20.0),
+
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0), // Adjust horizontal padding as needed
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            // Adjust horizontal padding as needed
             child: Container(
-              height: 35.0, // Adjust the height of the TextField as needed
+              height: 30.0, // Adjust the height of the TextField as needed
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xFF2C2C2F), // Set custom color
+                  fillColor: Color(0xFF2C2C2F),
+                  // Set custom color
                   hintText: 'Search',
                   hintStyle: TextStyle(color: Color(0xFF969696)),
                   prefixIcon: Icon(
@@ -47,24 +51,23 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
                     borderSide: BorderSide.none, // Remove outline
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 5.0), // Adjust vertical content padding
+                  contentPadding: EdgeInsets.symmetric(
+                      vertical: 5.0), // Adjust vertical content padding
                 ),
                 cursorColor: Color(0xFF5C8374),
                 style: TextStyle(fontSize: 14, color: Colors.white),
               ),
             ),
           ),
-          SizedBox(height: 13.0), // Added space between search bar and "Sort by" button
+          SizedBox(height: 0.0),
+          // Added space between search bar and "Sort by" button
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 35.0), // Adjust padding as needed
-              child: GestureDetector(
-                onTap: () {
-                  // Implement a method to show the pop-out drop-down menu
-                  _showSortMenu(context);
-                },
-                child: Text(
+              padding: const EdgeInsets.only(left: 35.0),
+              // Adjust padding as needed
+              child: PopupMenuButton<String>(
+                icon: Text(
                   'Sort by...',
                   style: TextStyle(
                     color: Colors.white,
@@ -72,17 +75,39 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
                     decoration: TextDecoration.underline,
                   ),
                 ),
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  PopupMenuItem<String>(
+                    value: 'name',
+                    child: Text('Sort by Name'),
+                  ),
+                  PopupMenuItem<String>(
+                    value: 'date',
+                    child: Text('Sort by Date'),
+                  ),
+                ],
+                onSelected: (String value) {
+                  // Handle sort by selection
+                  if (value == 'name') {
+                    // Handle sort by name
+                  } else if (value == 'date') {
+                    // Handle sort by date
+                  }
+                },
               ),
             ),
           ),
-          SizedBox(height: 10.0), // Added space between "Sort by" button and divider line
+          SizedBox(height: 0.0),
+          // Added space between "Sort by" button and divider line
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0), // Adjust horizontal padding as needed
+            padding: const EdgeInsets.symmetric(horizontal: 35.0),
+            // Adjust horizontal padding as needed
             child: Divider(
-              color: Color(0xFF5C8374), // Set divider color to match "Notes" text color
+              color: Color(0xFF5C8374),
+              // Set divider color to match "Notes" text color
               thickness: 1.0, // Set divider thickness
             ),
-          ), // Add other widgets for displaying notes or tags here
+          ),
+          // Add other widgets for displaying notes or tags here
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -94,36 +119,13 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
           );
         },
         child: Icon(Icons.add),
-        backgroundColor: Color(0xFF5C8374), // Set the background color of the FloatingActionButton
+        foregroundColor: Colors.white,
+        backgroundColor: Color(
+            0xFF5C8374), // Set the background color of the FloatingActionButton
       ),
     );
   }
-
-  void _showSortMenu(BuildContext context) {
-    // Implement your pop-out drop-down menu logic here
-    // For example, using PopupMenuButton
-    showMenu(
-      context: context,
-      position: RelativeRect.fromLTRB(0, 0, 0, 0),
-      items: <PopupMenuEntry>[
-        PopupMenuItem(
-          child: Text('Sort by Name'),
-          value: 'name',
-        ),
-        PopupMenuItem(
-          child: Text('Sort by Date'),
-          value: 'date',
-        ),
-        // Add more menu items as needed
-      ],
-      elevation: 8.0,
-    );
-  }
 }
-
-
-
-
 
 
 
