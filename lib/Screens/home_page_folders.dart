@@ -65,7 +65,6 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
             alignment: Alignment.centerLeft,
             child: Padding(
               padding: const EdgeInsets.only(left: 35.0),
-              // Adjust padding as needed
               child: PopupMenuButton<String>(
                 icon: Text(
                   'Sort by...',
@@ -78,21 +77,22 @@ class _HomeFolderScreenState extends State<HomeFolderScreen> {
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                   PopupMenuItem<String>(
                     value: 'name',
-                    child: Text('Sort by Name'),
+                    child: Text('Sort by Name', style: TextStyle(color: Colors.white)),
                   ),
                   PopupMenuItem<String>(
                     value: 'date',
-                    child: Text('Sort by Date'),
+                    child: Text('Sort by Date', style: TextStyle(color: Colors.white)),
                   ),
                 ],
                 onSelected: (String value) {
-                  // Handle sort by selection
                   if (value == 'name') {
                     // Handle sort by name
                   } else if (value == 'date') {
                     // Handle sort by date
                   }
                 },
+                offset: Offset(0, 35),
+                color: Colors.black,
               ),
             ),
           ),
