@@ -11,6 +11,8 @@ class HomeFolderScreen extends StatefulWidget {
     int currentIndex = 0;
 }
 
+
+
 class _HomeFolderScreenState extends State<HomeFolderScreen> {
   @override
   Widget build(BuildContext context) {
